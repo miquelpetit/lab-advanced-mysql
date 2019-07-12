@@ -20,7 +20,11 @@ sum(advance + titles.price * sales.qty * titles.royalty / 100 * titleauthor.roya
 as totalprofit
 from sales
 join titleauthor on sales.`title_id` = titleauthor.`title_id`
-join titles on sales.`title_id` = titles.`title_id;
+join titles on sales.`title_id` = titles.`title_id`
+group by titleauthor.`au_id`, titles.`title_id`
+limit 3
+;
+select * from publi_sales_royalty
 
 -- Challenge 3
 CREATE TABLE most_profiting_authors (
